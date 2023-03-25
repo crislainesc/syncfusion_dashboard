@@ -26,11 +26,11 @@ const App = () => {
           </div>
           {activeMenu ? (
             <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
-              <Sidebar />
+              <Sidebar activeMenu={activeMenu} />
             </div>
           ) : (
             <div className="w-0 dark:bg-secondary-dark-bg">
-              <Sidebar />
+              <Sidebar activeMenu={activeMenu} />
             </div>
           )}
           <div
