@@ -4,11 +4,12 @@ import { FiSettings } from 'react-icons/fi'
 import { TooltipComponent } from '@syncfusion/ej2-react-popups'
 
 import { Navbar, Footer, Sidebar, ThemeSettings } from './components'
+import { useStateContext } from './contexts/ContextProvider'
 import Routes from './routes'
 import './App.css'
 
 const App = () => {
-  const [activeMenu, setActiveMenu] = useState(true)
+  const { activeMenu } = useStateContext()
 
   return (
     <div>
@@ -26,11 +27,11 @@ const App = () => {
           </div>
           {activeMenu ? (
             <div className="w-72 fixed sidebar dark:bg-secondary-dark-bg bg-white">
-              <Sidebar activeMenu={activeMenu} />
+              <Sidebar />
             </div>
           ) : (
             <div className="w-0 dark:bg-secondary-dark-bg">
-              <Sidebar activeMenu={activeMenu} />
+              <Sidebar />
             </div>
           )}
           <div
@@ -46,7 +47,6 @@ const App = () => {
             <Routes />
           </div>
         </div>
-
       </BrowserRouter>
     </div>
   )
